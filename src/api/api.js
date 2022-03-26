@@ -55,6 +55,10 @@ export const getTesterById = async (id) => {
   return await performRequest("GET", `testers/${id}`, null);
 };
 
+export const deleteTesterById = async (id) => {
+  return await performRequest("DELETE", `testers/${id}`, null);
+};
+
 export const getAllTests = async () => {
   return await performRequest("GET", `tests`, null);
 };
