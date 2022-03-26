@@ -4,10 +4,25 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 
 import "../styles/history.css";
-
+import { useState, useEffect } from "react";
+import { getAllTests, } from "../api/api";
 import Table from "react-bootstrap/Table";
 
 function History() {
+  const [state, setState] = useState(null);
+  const [testers, setTesters] = useState(null);
+
+  const fetchTesters = (res) => {
+      
+  }
+
+  useEffect(async () => {
+
+    const res = await getAllTests();
+    console.log(res);
+
+    setState(res);
+  }, []);
   return (
     <>
       <Navbar />
@@ -16,10 +31,10 @@ function History() {
         <Table striped bordered hover className="table">
           <thead>
             <tr>
-              <th>Zero Name</th>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Username</th>
+              <th>Age</th>
+              <th>Sex</th>
+              <th>Descriptin</th>
+              <th>Result</th>
             </tr>
           </thead>
           <tbody className="table-body">
