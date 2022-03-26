@@ -5,23 +5,30 @@ import Navbar from "../components/Navbar";
 
 import "../styles/history.css";
 import { useState, useEffect } from "react";
-import { getAllTests, } from "../api/api";
+import { getAllTests, getTesterById } from "../api/api";
 import Table from "react-bootstrap/Table";
 
 function History() {
-  const [state, setState] = useState(null);
+  const [state, setState] = useState([]);
   const [testers, setTesters] = useState(null);
 
   const fetchTesters = (res) => {
-      
+      let temArray = [];
+       res.forEach(async (test)=> {
+           let res = await getTesterById(test.tester_id)
+            let { age, sex } = res;
+            temArray.push({age, sex, "description" : test.description, "result" : test.result});
+       });
+
+       console.log(temArray);
   }
 
   useEffect(async () => {
 
     const res = await getAllTests();
-    console.log(res);
-
-    setState(res);
+  //  console.log(res[0])
+    //setState(res);
+    fetchTesters(res);
   }, []);
   return (
     <>

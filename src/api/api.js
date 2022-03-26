@@ -52,7 +52,7 @@ export const getTestById = async (id) => {
 };
 
 export const getTesterById = async (id) => {
-  return await performRequest("GET", `test/${id}`, null);
+  return await performRequest("GET", `testers/${id}`, null);
 };
 
 export const getAllTests = async () => {
