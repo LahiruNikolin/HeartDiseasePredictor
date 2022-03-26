@@ -2,15 +2,21 @@ import * as React from "react";
 
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-
+import Modal from "react-bootstrap/Modal";
 import "../styles/history.css";
 import { useState, useEffect } from "react";
 import { getAllTests, getTesterById, deleteTesterById } from "../api/api";
 import Table from "react-bootstrap/Table";
+import Button from "@mui/material/Button";
 
 function History() {
   const [state, setState] = useState([{ id: "12" }, { id: "tre" }]);
   const [testers, setTesters] = useState([]);
+  const [show, setShow] = useState(false);
+
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const fetchTesters = (res) => {
     res.forEach(async (test) => {
@@ -20,14 +26,14 @@ function History() {
         return [...prevState, { age, sex, description: test.description, result: test.result, id: test.tester_id }];
       });
     });
-
   };
 
   const handleDelete = async (id) => {
-    console.log("deleting",id);
- // await deleteTesterById(test.tester_id);
-  //  const res = await getAllTests();
-  //  fetchTesters(res);
+    console.log("deleting", id);
+    handleShow();
+    // await deleteTesterById(test.tester_id);
+    //  const res = await getAllTests();
+    //  fetchTesters(res);
   };
 
   useEffect(async () => {
@@ -57,9 +63,12 @@ function History() {
                   <td>{tester.sex}</td>
                   <td>{tester.description}</td>
                   <td>{tester.result}</td>
-                  <td style={{textAlign:'center', cursor:"pointer"}} onClick={() => {
-                    handleDelete(tester.id)
-                  }}> 
+                  <td
+                    style={{ textAlign: "center", cursor: "pointer" }}
+                    onClick={() => {
+                      handleDelete(tester.id);
+                    }}
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
@@ -77,6 +86,20 @@ function History() {
           </tbody>
         </Table>
       </div>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
       <Footer />
     </>
   );
