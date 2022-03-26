@@ -94,7 +94,7 @@ function Landing() {
                 <Spinner animation="grow" size="sm" />
               </>
             ) : (
-              `${state.description}`
+              `${state.description ?? "Coudn't find results"}`
             )}
           </div>
           <div className="btn-cont">       

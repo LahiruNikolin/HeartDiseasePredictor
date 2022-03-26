@@ -29,7 +29,7 @@ export const addTester = async () => {
 
 export const initPrediction = async (data) => {
   var FormData = require("form-data");
-  var data = new FormData();
+  var form = new FormData();
   /*
   data.append("age", "70");
   data.append("sex", "1");
@@ -45,21 +45,21 @@ export const initPrediction = async (data) => {
   data.append("ca", "3");
   data.append("thal", "3"); 
   */
-  data.append("age", data[0]);
-  data.append("sex", data[1]);
-  data.append("cp", data[2]);
-  data.append("trestbps", data[3]);
-  data.append("chol", data[4]);
-  data.append("fbs", data[5]);
-  data.append("restecg", data[6]);
-  data.append("thalach", data[7]);
-  data.append("exang", data[8]);
-  data.append("oldpeak", data[9]);
-  data.append("slope", data[10]);
-  data.append("ca", data[11]);
-  data.append("thal", data[12]);
+  form.append("age", data[0]);
+  form.append("sex", data[1]);
+  form.append("cp", data[2]);
+  form.append("trestbps", data[3]);
+  form.append("chol", data[4]);
+  form.append("fbs", data[5]);
+  form.append("restecg", data[6]);
+  form.append("thalach", data[7]);
+  form.append("exang", data[8]);
+  form.append("oldpeak", data[9]);
+  form.append("slope", data[10]);
+  form.append("ca", data[11]);
+  form.append("thal", data[12]);
 
-  return await performRequest("POST", "add_tester", data);
+  return await performRequest("POST", "add_tester", form);
 };
 
 export const getTestById = async (id) => {

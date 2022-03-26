@@ -20,7 +20,6 @@ function Form() {
       let value = document.querySelector(`#formGroupExampleInput${i}`)?.value;
       formArray.push(value ?? "");
     }
-    // navigate(`/prediction/3423`);
    const res = await initPrediction(formArray);
    navigate(`/prediction/${res.test_id}`);
   };
