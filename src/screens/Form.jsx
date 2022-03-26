@@ -5,17 +5,24 @@ import Navbar from "../components/Navbar";
 import Spinner from "react-bootstrap/Spinner";
 
 import { initPrediction } from "../api/api";
+import{ useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 
 import "../styles/form.css";
 
 function Form() {
+   
+    let navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const res = await initPrediction();
-    console.log(res);
-
+ //   const res = await initPrediction();
+  //  console.log(res);
+    navigate(`/prediction/3423`);
   };
+
+  useEffect(()=> {
+  },[]);
   return (
     <>
       <Navbar />

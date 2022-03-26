@@ -45,6 +45,10 @@ export const initPrediction = async () => {
   });
 };
 
+export const getTestById = async (id) => {
+  return await performRequest("GET", `test/${id}`, null);
+};
+
 export const test = async () => {
   console.log("test call");
 };

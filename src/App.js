@@ -6,6 +6,7 @@ import Form from "./screens/Form";
 import "./App.css";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Switch } from "react-router-dom";
 
 function App() {
   return (
@@ -13,8 +14,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="home" element={<Home />} />
-        <Route path="prediction" element={<Form />} />
+        <Route path="prediction" element={<Form />} /> 
         <Route path="history" element={<History />} />
+        <Route path="prediction/:id" element={<Landing />} />
       </Routes>
     </BrowserRouter>
   );

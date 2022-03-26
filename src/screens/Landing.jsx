@@ -30,12 +30,22 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Spinner from "react-bootstrap/Spinner";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Form from "./Form";
+import { useParams } from "react-router-dom";
+import { getTestById } from "../api/api";
+import { useState, useEffect } from "react";
 
 import "../styles/loading.css";
 
 function Landing() {
   const [isDetecting, setIsDetecting] = React.useState(false);
   // const [anchorEl, setAnchorEl] = React.useState(null);
+  let { id } = useParams();
+
+  const [state, setState] = useState(null);
+
+  console.log("id", id);
 
   const runDetection = () => {
     setIsDetecting(true);
@@ -44,6 +54,11 @@ function Landing() {
   const stop = () => {
     setIsDetecting(false);
   };
+
+  useEffect(async () => {
+    const res = await getTestById(id);
+    setState(res);
+  }, [id]);
   return (
     <>
       <Navbar />
@@ -52,12 +67,12 @@ function Landing() {
           <div className="results">
             {isDetecting ? (
               <>
-                <Spinner animation="grow"  size="sm"/>
-                <Spinner animation="grow"  size="sm"/>
-                <Spinner animation="grow"  size="sm"/>
-                <Spinner animation="grow"  size="sm"/>
-                <Spinner animation="grow"  size="sm"/>
-                <Spinner animation="grow"  size="sm"/>
+                <Spinner animation="grow" size="sm" />
+                <Spinner animation="grow" size="sm" />
+                <Spinner animation="grow" size="sm" />
+                <Spinner animation="grow" size="sm" />
+                <Spinner animation="grow" size="sm" />
+                <Spinner animation="grow" size="sm" />
               </>
             ) : (
               "Results: Arrhythmia"
@@ -77,7 +92,6 @@ function Landing() {
             </div>
           </div>
         </div>
- 
       </div>
       <Footer />
     </>
