@@ -16,7 +16,7 @@ function Form() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const res = await initPrediction();
+    const res = await initPrediction(); //need to pass form data
     console.log(res);
    // navigate(`/prediction/3423`);
   };
