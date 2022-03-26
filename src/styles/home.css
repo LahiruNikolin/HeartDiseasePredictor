@@ -1,0 +1,89 @@
+.main-cointaner {
+  background-color: #fff;
+  font-family: "Oxygen Bold";
+  position: relative;
+}
+
+.main-inner-cont {
+  background-color: #fff;
+  padding: 0 80px;
+}
+.nav-text {
+  color: rgb(145, 48, 48);
+}
+.nav-cont {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 0;
+}
+.nav-control-cont {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.nav-item {
+  padding: 0 10px;
+  font-size: 10px;
+  color: rgb(151, 151, 151);
+}
+.carosel-wrapper {
+  height: 70vh !important;
+}
+.land-imgs {
+  height: 330px;
+}
+.sub-sec-cont {
+  height: 114px;
+  position: relative;
+  text-align: center;
+}
+.sub-cont-text {
+  color: rgb(59, 59, 59);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-transform: uppercase;
+}
+.card-cont {
+  display: flex;
+  justify-content: center;
+  padding-top: 130px;
+}
+.third-sec-cont {
+  height: 400px;
+
+  padding-top: 400px;
+  padding-left: 100px;
+  display: flex;
+}
+.article-header{
+    font-size: 14px;
+    color: rgb(117, 140, 204);
+    text-transform: uppercase;
+    border-bottom: 1px solid black;
+    padding-bottom: 7px;
+}
+.article-content{
+    font-size: 12px;
+    color: rgb(118, 119, 121);
+    padding-top: 10px;
+}
+.article-cont {
+  padding-left: 10px;
+}
+.footer-placer{
+    padding-top: 230px;
+}
+.footer{
+    height: 30px;
+    background-color: rgb(158, 55, 55);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer-text{
+  color: #fff;
+  font-size: 8px;
+}

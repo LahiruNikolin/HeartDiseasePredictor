@@ -1,0 +1,18 @@
+
+.mainContainer {
+  /* Created with https://www.css-gradient.com 
+  background: rgba(57, 164, 230, 1);
+  background: -webkit-linear-gradient(top left, rgba(57, 164, 230, 1), rgba(28, 14, 112, 1));
+  background: -moz-linear-gradient(top left, rgba(57, 164, 230, 1), rgba(28, 14, 112, 1));
+  background: linear-gradient(to bottom right, rgba(57, 164, 230, 1), rgba(28, 14, 112, 1)); */
+
+  background: -webkit-linear-gradient(top left, rgba(226, 24, 41, 1), rgba(219, 119, 132, 1));
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: beige;
+  font-size: 3.5rem;
+  font-family: 'Lobster';
+}

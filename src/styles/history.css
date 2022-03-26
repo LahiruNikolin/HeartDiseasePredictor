@@ -1,0 +1,17 @@
+.history-main {
+  padding: 30px 70px 0 70px !important;
+  font-family: "Oxygen Bold" !important;
+}
+.table {
+  display: block;
+  height: 220px;
+  width: 400px;
+  overflow-y: scroll;
+}
+.past-pred {
+ 
+  text-align: left;
+  padding: 4px 0;
+  color: rgb(126, 116, 116) !important;
+  margin-top: -40px;
+}
