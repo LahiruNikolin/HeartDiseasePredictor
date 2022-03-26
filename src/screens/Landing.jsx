@@ -33,7 +33,7 @@ import Spinner from "react-bootstrap/Spinner";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Form from "./Form";
 import { useParams } from "react-router-dom";
-import { getTestById } from "../api/api";
+import { getTestById, deleteTest, getAllTests } from "../api/api";
 import { useState, useEffect } from "react";
 
 import "../styles/loading.css";
@@ -56,8 +56,13 @@ function Landing() {
   };
 
   useEffect(async () => {
-    const res = await getTestById(id);
-    setState(res);
+  //  const res = await getTestById(id);
+  console.log("delete calling")
+  await deleteTest("623e060de6df369473863047");
+ //const res = await getAllTests();
+// console.log(res);
+
+    //setState(res);
   }, [id]);
   return (
     <>
