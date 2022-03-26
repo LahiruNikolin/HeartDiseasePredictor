@@ -39,11 +39,9 @@ function History() {
   };
 
   const confirmTestDelete = async () => {
-      await deleteTestById(deleteId);
-      handleClose();
+    await deleteTestById(deleteId);
+    handleClose();
 
-      const res = await getAllTests();
-       fetchTesters(res);
     //  const res = await getAllTests();
     //  fetchTesters(res);
   };
