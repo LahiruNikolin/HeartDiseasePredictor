@@ -35,34 +35,48 @@ import Form from "./Form";
 import { useParams } from "react-router-dom";
 import { getTestById, deleteTest, getAllTests } from "../api/api";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 import "../styles/loading.css";
 
 function Landing() {
+  let navigate = useNavigate();
+
   const [isDetecting, setIsDetecting] = React.useState(false);
   // const [anchorEl, setAnchorEl] = React.useState(null);
   let { id } = useParams();
 
-  const [state, setState] = useState(null);
+  const [state, setState] = useState({
+    description: '',
+    result:''
+  });
 
   console.log("id", id);
 
   const runDetection = () => {
-    setIsDetecting(true);
+   // setIsDetecting(true);
   };
 
   const stop = () => {
-    setIsDetecting(false);
+    //setIsDetecting(false);
+    navigate(`/prediction`);
   };
 
   useEffect(async () => {
-  //  const res = await getTestById(id);
-  console.log("delete calling")
-  await deleteTest("623e060de6df369473863047");
- //const res = await getAllTests();
-// console.log(res);
+    setIsDetecting(true);
+    const res = await getTestById(id);
+    console.log("delete respinse", res);
+    setState(res);
+     
+    // await deleteTest("623e060de6df369473863047");
+    //const res = await getAllTests();
+    // console.log(res);
 
     //setState(res);
+    setTimeout(()=>{  
+      
+      setIsDetecting(false);
+    }, 1300);
   }, [id]);
   return (
     <>
@@ -80,20 +94,12 @@ function Landing() {
                 <Spinner animation="grow" size="sm" />
               </>
             ) : (
-              "Results: Arrhythmia"
+              `${state.description}`
             )}
           </div>
-          <div className={isDetecting ? "result-sub-hide" : "result-sub"}> Only took 6.4 seconds</div>
-          <div className="btn-cont">
-            <div className="btn" onClick={runDetection}>
-              {isDetecting ? (
-                <Spinner as="span" animation="border" role="status" aria-hidden="true" />
-              ) : (
-                "Run Prediction"
-              )}
-            </div>
+          <div className="btn-cont">       
             <div className="resrt" onClick={stop}>
-              Clear
+              Go Back
             </div>
           </div>
         </div>

@@ -27,9 +27,10 @@ export const addTester = async () => {
   return await performRequest("POST", "api/add_tester", null);
 };
 
-export const initPrediction = async () => {
+export const initPrediction = async (data) => {
   var FormData = require("form-data");
   var data = new FormData();
+  /*
   data.append("age", "70");
   data.append("sex", "1");
   data.append("cp", "4");
@@ -42,7 +43,21 @@ export const initPrediction = async () => {
   data.append("oldpeak", "2.4");
   data.append("slope", "2");
   data.append("ca", "3");
-  data.append("thal", "3");
+  data.append("thal", "3"); 
+  */
+  data.append("age", data[0]);
+  data.append("sex", data[1]);
+  data.append("cp", data[2]);
+  data.append("trestbps", data[3]);
+  data.append("chol", data[4]);
+  data.append("fbs", data[5]);
+  data.append("restecg", data[6]);
+  data.append("thalach", data[7]);
+  data.append("exang", data[8]);
+  data.append("oldpeak", data[9]);
+  data.append("slope", data[10]);
+  data.append("ca", data[11]);
+  data.append("thal", data[12]);
 
   return await performRequest("POST", "add_tester", data);
 };

@@ -5,71 +5,74 @@ import Navbar from "../components/Navbar";
 import Spinner from "react-bootstrap/Spinner";
 
 import { initPrediction } from "../api/api";
-import{ useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import "../styles/form.css";
 
 function Form() {
-   
-    let navigate = useNavigate();
+  let navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
+    let formArray = [];
 
-    const res = await initPrediction(); //need to pass form data
-    console.log(res);
-   // navigate(`/prediction/3423`);
+    for (let i = 1; i < 14; i++) {
+      let value = document.querySelector(`#formGroupExampleInput${i}`)?.value;
+      formArray.push(value ?? "");
+    }
+    // navigate(`/prediction/3423`);
+   const res = await initPrediction(formArray);
+   navigate(`/prediction/${res.test_id}`);
   };
 
-  useEffect(()=> {
-  },[]);
+  useEffect(() => {}, []);
   return (
     <>
       <Navbar />
       <div className="form-main-container">
         <div className="form-wrapper">
-          <form className="form">
+          <form className="form" id="TesterForm">
             <div className="inputs-cont">
               <div class="form-group">
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Age" />
+                <input type="text" class="form-control" id="formGroupExampleInput1" placeholder="Age" />
               </div>
               <div class="form-group">
                 <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Sex" />
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Cp" />
+                <input type="text" class="form-control" id="formGroupExampleInput3" placeholder="Cp" />
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Trestbps" />
+                <input type="text" class="form-control" id="formGroupExampleInput4" placeholder="Trestbps" />
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Chol" />
+                <input type="text" class="form-control" id="formGroupExampleInput5" placeholder="Chol" />
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Fbs" />
+                <input type="text" class="form-control" id="formGroupExampleInput6" placeholder="Fbs" />
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Restecg" />
+                <input type="text" class="form-control" id="formGroupExampleInput7" placeholder="Restecg" />
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Thalach" />
+                <input type="text" class="form-control" id="formGroupExampleInput8" placeholder="Thalach" />
               </div>
             </div>
             <div className="inputs-cont">
               <div class="form-group">
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Exang" />
+                <input type="text" class="form-control" id="formGroupExampleInput9" placeholder="Exang" />
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Oldpeal" />
+                <input type="text" class="form-control" id="formGroupExampleInput10" placeholder="Oldpeal" />
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Slope" />
+                <input type="text" class="form-control" id="formGroupExampleInput11" placeholder="Slope" />
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Ca" />
+                <input type="text" class="form-control" id="formGroupExampleInput12" placeholder="Ca" />
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Thal" />
+                <input type="text" class="form-control" id="formGroupExampleInput13" placeholder="Thal" />
               </div>
               <div class="form-group" className="submit-btn-cont">
                 <button type="submit" class=" btn-primary mb-2" onClick={handleSubmit}>
