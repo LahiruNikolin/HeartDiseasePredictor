@@ -102,10 +102,10 @@ function History() {
         </Modal.Header>
         <Modal.Body>Are you sure you want to delete</Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="secondary" onClick={handleClose} style={{background:"#DFDFDE",marginRight:"3px"}}>
             Nope
           </Button>
-          <Button variant="primary" onClick={confirmTestDelete}>
+          <Button variant="primary" onClick={confirmTestDelete} style={{background:"#FD5D5D",color:'#fff'}}>
             Yes Go Ahead!
           </Button>
         </Modal.Footer>
