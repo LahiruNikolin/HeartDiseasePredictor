@@ -16,9 +16,9 @@ function Form() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
- //   const res = await initPrediction();
-  //  console.log(res);
-    navigate(`/prediction/3423`);
+    const res = await initPrediction();
+    console.log(res);
+   // navigate(`/prediction/3423`);
   };
 
   useEffect(()=> {

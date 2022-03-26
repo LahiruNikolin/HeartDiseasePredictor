@@ -28,25 +28,31 @@ export const addTester = async () => {
 };
 
 export const initPrediction = async () => {
-  return await performRequest("POST", "add_tester", {
-    age: 70,
-    sex: 1,
-    cp: 4,
-    trestbps: 130,
-    chol: 322,
-    fbs: 0,
-    restecg: 2,
-    thalach: 109,
-    exang: 0,
-    oldpeak: 2.4,
-    slope: 2,
-    ca: 3,
-    thal: 3,
-  });
+  var FormData = require("form-data");
+  var data = new FormData();
+  data.append("age", "70");
+  data.append("sex", "1");
+  data.append("cp", "4");
+  data.append("trestbps", "130");
+  data.append("chol", "322");
+  data.append("fbs", "0");
+  data.append("restecg", "2");
+  data.append("thalach", "109");
+  data.append("exang", "0");
+  data.append("oldpeak", "2.4");
+  data.append("slope", "2");
+  data.append("ca", "3");
+  data.append("thal", "3");
+
+  return await performRequest("POST", "add_tester", data);
 };
 
 export const getTestById = async (id) => {
   return await performRequest("GET", `test/${id}`, null);
+};
+
+export const getAllTests = async () => {
+  return await performRequest("GET", `test`, null);
 };
 
 export const test = async () => {
