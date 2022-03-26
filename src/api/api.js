@@ -78,8 +78,9 @@ export const getAllTests = async () => {
   return await performRequest("GET", `tests`, null);
 };
 
-export const deleteTest = async (id) => {
-  return await performRequest("DELETE", `tests/${id}`, null);
+export const deleteTestById = async (id) => {
+  console.log(id);
+ // return await performRequest("DELETE", `tests/${id}`, null);
 };
 
 export const test = async () => {

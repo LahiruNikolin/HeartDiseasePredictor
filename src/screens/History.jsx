@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar";
 import Modal from "react-bootstrap/Modal";
 import "../styles/history.css";
 import { useState, useEffect } from "react";
-import { getAllTests, getTesterById, deleteTesterById } from "../api/api";
+import { getAllTests, deleteTestById, getTesterById } from "../api/api";
 import Table from "react-bootstrap/Table";
 import Button from "@mui/material/Button";
 
@@ -14,6 +14,7 @@ function History() {
   const [testers, setTesters] = useState([]);
   const [show, setShow] = useState(false);
 
+  const [deleteId, setDeleteId] = useState(null);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -30,8 +31,19 @@ function History() {
 
   const handleDelete = async (id) => {
     console.log("deleting", id);
+    setDeleteId(id);
     handleShow();
     // await deleteTesterById(test.tester_id);
+    //  const res = await getAllTests();
+    //  fetchTesters(res);
+  };
+
+  const confirmTestDelete = async () => {
+      await deleteTestById(deleteId);
+      handleClose();
+
+      const res = await getAllTests();
+       fetchTesters(res);
     //  const res = await getAllTests();
     //  fetchTesters(res);
   };
@@ -88,15 +100,15 @@ function History() {
       </div>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Confirm</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Body>Are you sure you want to delete</Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
-            Close
+            Nope
           </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
+          <Button variant="primary" onClick={confirmTestDelete}>
+            Yes Go Ahead!
           </Button>
         </Modal.Footer>
       </Modal>
