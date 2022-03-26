@@ -25,6 +25,11 @@ function Navbar() {
               Prediction
             </Link>
           </div>
+          <div className="nav-item">
+            <Link to="/charts" style={{ textDecoration: "none", color: "rgb(236, 62, 62)" }}>
+              Charts
+            </Link>
+          </div>
         </div>
       </div>
     </div>

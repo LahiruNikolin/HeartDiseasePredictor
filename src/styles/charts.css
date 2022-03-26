@@ -1,0 +1,25 @@
+.chart-main-container{
+    background-color: #F5F5F5 !important;
+ 
+} 
+
+.modal{
+    height: 350px !important;
+    
+   
+}
+.modal-data{
+    display: flex;
+    justify-content: space-between;
+    padding: 2px 0;
+
+}
+.modal-data span:nth-child(2){
+  margin-left: 10px;
+  background-color: #d3d4d4;
+
+   padding: 0 6px;
+   border-radius: 6px;
+ 
+
+}
