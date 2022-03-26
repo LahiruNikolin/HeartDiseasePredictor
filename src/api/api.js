@@ -3,13 +3,16 @@ import axios from "axios";
 const performRequest = async (method, url, data) => {
   const token = "";
   return await axios({
-    baseURL: ``,
+    baseURL: `http://127.0.0.1:5000/api`,
     url: url,
     method: method,
     data: data,
     headers: {
       "Content-Type": "application/json",
-      Authorization: token ? `Bearer ${token}` : "",
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Credentials": "true",
+      "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Requested-With",
+      "Access-Control-Allow-Methods": "DELETE, POST, GET, OPTIONS",
     },
   })
     .then((response) => {
@@ -25,7 +28,7 @@ export const addTester = async () => {
 };
 
 export const initPrediction = async () => {
-  return await performRequest("GET", "customers/me", {
+  return await performRequest("POST", "add_tester", {
     age: 70,
     sex: 1,
     cp: 4,
@@ -40,4 +43,8 @@ export const initPrediction = async () => {
     ca: 3,
     thal: 3,
   });
+};
+
+export const test = async () => {
+  console.log("test call");
 };

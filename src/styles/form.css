@@ -1,0 +1,29 @@
+.form-main-container{
+    
+}
+
+.form-wrapper{
+  max-width: 400px;
+  margin: auto;
+}
+.form-group label{
+    font-size: 8px !important;
+}
+
+.form-group input{
+    font-size: 10px !important;
+}
+.form-group input::placeholder{
+    font-size: 8px !important;
+     
+}
+.form{
+    display: flex;
+    justify-content: space-evenly;
+}
+.submit-btn-cont{
+}
+.submit-btn-cont button{
+    width: 100% !important;
+    margin-top: 8px;
+}
